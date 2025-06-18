@@ -1,0 +1,125 @@
+/* Body & calculator root */
+body {
+  background: #000;
+  color: #fff;
+  font-family: 'Quicksand', Arial, sans-serif;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* prevent scroll from ball movement */
+}
+
+#calculator-root {
+  position: relative;
+  z-index: 10; /* above the balls */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Display styling - now with fancy-box glass morph */
+.display {
+  width: 407px;
+  height: 90px;
+  margin-bottom: 2rem;
+  box-sizing: border-box;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* right-align */
+  font-family: 'Old Standard TT', serif;
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  color: #fff;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.display.fancy-box {
+  background: transparent;
+  border-radius: 18px;
+  border: none; 
+  backdrop-filter: blur(10px);
+  box-shadow:
+    inset 1px 1px 1px rgba(255, 255, 255, 0.4),
+    inset -1px -1px 1px rgba(255, 255, 255, 0.25),
+    inset -1px -1px 1px rgba(188, 188, 188, 0.4),
+    inset 1px 1px 4px rgba(255, 255, 255, 0.2);
+  cursor: default;
+}
+
+/* Grid container for buttons */
+.grid-container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  width: 407px;
+}
+
+/* Common button styling */
+.fancy-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  color: white;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  box-shadow:
+    inset 1px 1px 1px rgba(255, 255, 255, 0.4),
+    inset -1px -1px 1px rgba(255, 255, 255, 0.25),
+    inset -1px -1px 1px rgba(188, 188, 188, 0.4),
+    inset 1px 1px 4px rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 1.5rem;
+  border-radius: 14px;
+  min-width: 60px;
+  min-height: 60px;
+  font-family: 'Quicksand', Arial, sans-serif;
+}
+
+/* Numbers use Old Standard TT */
+.fancy-box.number {
+  font-family: 'Old Standard TT', serif;
+}
+
+/* Responsive for mobile */
+@media (max-width: 500px) {
+  .display, .grid-container {
+    width: 90vw;
+  }
+  .display {
+    font-size: 1.2rem;
+    padding: 0 0.5rem;
+  }
+  .fancy-box {
+    min-width: 40px;
+    min-height: 40px;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+}
+
+#balls-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 0; 
+  pointer-events: none;
+}
+
+/* Ball styles */
+.ball {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  opacity: 1;
+}
+
