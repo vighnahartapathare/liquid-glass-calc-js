@@ -38,8 +38,13 @@ body {
 }
 
 .display.fancy-box {
+  font-family: 'Old Standard TT', serif;
   background: transparent;
   border-radius: 18px;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-right: 0.6rem;
+  padding-bottom: 0.4rem; 
   border: none; 
   backdrop-filter: blur(10px);
   box-shadow:
@@ -53,7 +58,7 @@ body {
 /* Grid container for buttons */
 .grid-container {
   display: grid;
-  gap: 1rem;
+  gap: 2rem;
   grid-template-columns: repeat(4, 1fr);
   width: 407px;
 }
