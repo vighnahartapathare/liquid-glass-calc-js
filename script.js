@@ -6,7 +6,7 @@ const buttons = [
   ['()', '0', '.', '=']
 ];
 
-const numberSet = new Set(['0','()','1','2','3','4','5','6','7','8','9']);
+const numberSet = new Set(['0','()','1','2','3','4','5','6','7','8','9','AC']);
 const display = document.getElementById('display');
 
 function createButtons() {
